@@ -1246,6 +1246,9 @@ class Signal:
         wave = self.make_wave(duration, start=0, framerate=framerate)
         wave.plot()
 
+    def save_pdf(self):
+        plt.savefig("{self}.pdf".format(self=self), format="pdf")
+
     def make_wave(self, duration=1, start=0, framerate=11025):
         """Makes a Wave object.
 

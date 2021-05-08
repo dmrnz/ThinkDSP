@@ -273,7 +273,6 @@ class _SpectrumParent:
             i = None if high is None else find_index(high, self.fs)
             plt.plot(self.fs[:i], self.amps[:i], **options)
 
-        plt.savefig("{self}.pdf".format(self=self), format="pdf")
 
     def plot_power(self, high=None, **options):
         """Plots power vs frequency.
@@ -287,7 +286,6 @@ class _SpectrumParent:
             i = None if high is None else find_index(high, self.fs)
             plt.plot(self.fs[:i], self.power[:i], **options)
 
-        plt.savefig("{self}.pdf".format(self=self), format="pdf")
 
     def estimate_slope(self):
         """Runs linear regression on log power vs log frequency.
@@ -490,7 +488,6 @@ class IntegratedSpectrum:
             cs = np.exp(cs)
 
         plt.plot(fs, cs, **options)
-        plt.savefig("{self}.pdf".format(self=self), format="pdf")
 
     def estimate_slope(self, low=1, high=-12000):
         """Runs linear regression on log cumulative power vs log frequency.
@@ -610,7 +607,6 @@ class Spectrogram:
 
         underride(options, cmap='inferno_r', shading='auto')
         plt.pcolormesh(ts, fs, array, **options)
-        plt.savefig("{self}.pdf".format(self=self), format="pdf")
 
     def get_data(self, high=None, **options):
         """Returns spectogram as 2D numpy array
@@ -1021,7 +1017,6 @@ class Wave:
         """
         xfactor = self.get_xfactor(options)
         plt.plot(self.ts * xfactor, np.real(self.ys), **options)
-        plt.savefig("{self}.pdf".format(self=self), format="pdf")
 
     def plot_vlines(self, **options):
         """Plots the wave with vertical lines for samples.

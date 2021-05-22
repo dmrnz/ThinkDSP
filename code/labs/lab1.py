@@ -1,8 +1,8 @@
 from code.thinkdsp import read_wave, decorate, SinSignal, CosSignal
 import matplotlib.pyplot as plt
 
-filePath = "C:/Users/dimac/PycharmProjects/ThinkDSP/code/lab_captions/lab1/"
-
+filePath = "/code/lab_captions/lab1/"
+fileExtension = ".pdf"
 """
 Exercise 1.1
 
@@ -16,7 +16,7 @@ spectrum_ex1.plot(color='0.7')
 spectrum_ex1.low_pass(1000)
 spectrum_ex1.plot(color='#045a8d')
 
-plt.savefig(filePath + "1.last.ex.chap01.pdf")
+plt.savefig(filePath + "1.last.ex.chap01" + fileExtension)
 plt.close()
 
 """
@@ -37,14 +37,14 @@ wave_1_2 = read_wave('../32158__zin__piano-2-140bpm.wav')
 wave_1_2.normalize()
 wave_1_2.make_audio()
 wave_1_2.plot()
-plt.savefig(filePath + "2.full.piano.pdf")
+plt.savefig(filePath + "2.full.piano" + fileExtension)
 plt.close()
 
 segment_1_2 = wave_1_2.segment(start=0, duration=0.22)
 spectrum_1_2 = segment_1_2.make_spectrum()
 
 spectrum_1_2.plot(high=4500)
-plt.savefig(filePath + "2.piano.spectrum.pdf")
+plt.savefig(filePath + "2.piano.spectrum" + fileExtension)
 plt.close()
 
 print(spectrum_1_2.peaks()[:10])
@@ -57,7 +57,7 @@ decorate(xlabel='Frequency (Hz)')
 
 spectrum_1_2.make_wave().make_audio()
 
-plt.savefig(filePath + "2.piano.spectrum.filtered.pdf")
+plt.savefig(filePath + "2.piano.spectrum.filtered" + fileExtension)
 plt.close()
 
 """
@@ -73,7 +73,7 @@ signal_1_3 = (CosSignal(freq=1000, amp=1.0) +
               CosSignal(freq=400, amp=0.33) +
               CosSignal(freq=2000, amp=1.5))
 signal_1_3.plot()
-plt.savefig(filePath + "3.compound.signal.pdf")
+plt.savefig(filePath + "3.compound.signal" + fileExtension)
 plt.close()
 
 wave_1_3 = signal_1_3.make_wave(duration=3)
@@ -82,7 +82,7 @@ wave_1_3.make_audio()
 
 spectrum_1_3 = wave_1_3.make_spectrum()
 spectrum_1_3.plot(high=2100)
-plt.savefig(filePath + "3.compound.spectrum.pdf")
+plt.savefig(filePath + "3.compound.spectrum" + fileExtension)
 plt.close()
 
 signal_1_3 += SinSignal(freq=789)
@@ -100,7 +100,7 @@ wave_1_4 = read_wave('../32158__zin__piano-2-140bpm.wav')
 wave_1_4.normalize()
 wave_1_4.make_audio()
 wave_1_4.plot()
-plt.savefig(filePath + "4.normal.pdf")
+plt.savefig(filePath + "4.normal" + fileExtension)
 plt.close()
 
 
@@ -113,5 +113,5 @@ stretch(wave_1_4, 2)
 wave_1_4.make_audio()
 
 wave_1_4.plot()
-plt.savefig(filePath + "4.stretch.pdf")
+plt.savefig(filePath + "4.stretch" + fileExtension)
 plt.close()
